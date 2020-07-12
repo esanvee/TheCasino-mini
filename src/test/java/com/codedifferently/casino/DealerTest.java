@@ -7,50 +7,84 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class DealerTest {
-	
-	CardDeck testCardDeck;
-	Dealer testDealer;
-	Player testPlayer;
-	
-	ArrayList<Card> hand;
-	
-	@Before
-	
-	public void initalize() {
-		
+
+	@Test
+
+	public void testAddCard() {
+
 		CardDeck testCardDeck = new CardDeck();
-		
-		
-		ArrayList<Card> handP = new ArrayList<Card>();
-		ArrayList<Card> handD = new ArrayList<Card>();
-		
+
+		ArrayList<Card> handD = new ArrayList<Card>(); // Dealer's hand
+		//ArrayList<Card> handP = new ArrayList<Card>(); // Player's hand
+
 		Dealer testDealer = new Dealer(handD);
-		Player testPlayer = new Player(handP);
+		//Player testPlayer = new Player(handP);
+
+		testDealer.addToHand(testCardDeck);
+
+		// Is his hand empty?
+
+		boolean expected = false;
+		boolean actual = testDealer.hand.isEmpty();
+
+		Assert.assertEquals(expected, actual);
+
+	}
+
+	@Test
+
+	public void testPlaceCard() {
+
+		CardDeck testCardDeck = new CardDeck();
+
+		ArrayList<Card> handD = new ArrayList<Card>(); // Dealer's hand
+
+		Dealer testDealer = new Dealer(handD);
 		
-		System.out.println(testCardDeck.getDeckSize());
-		System.out.println(testDealer.placeCard(0));
+
+		testDealer.addToHand(testCardDeck);
+		
+		testDealer.placeCard(0);
+		
+		//Did he remove the card?
+		
+		boolean expected = true;
+		boolean actual = testDealer.hand.isEmpty();
+
+		Assert.assertEquals(expected, actual);
+		
 		
 	}
 	
 	@Test
 	
-	public void testAddCard() {
+	public void givePlayerCard() {
 		
-		testDealer.addToHand(testCardDeck);
-		System.out.println(testDealer.placeCard(0)); 
+		CardDeck testCardDeck = new CardDeck();
+
+		ArrayList<Card> handD = new ArrayList<Card>(); // Dealer's hand
+		ArrayList<Card> handP = new ArrayList<Card>(); // Player's hand
+
+		Dealer testDealer = new Dealer(handD);
+		Player testPlayer = new Player(handP);
 		
-		//Is his hand empty?
 		
+		//---
 		
-		boolean expected = true;
-		boolean actual = testDealer.hand.isEmpty();
+		Card expectedCard = testCardDeck.getCard(0);
+
+		//Pull a card stright from the deck to the player
 		
-		Assert.assertEquals(expected,actual);
+		testDealer.distributeCard(testPlayer, testCardDeck);
 		
+		testPlayer.readHand();
+		
+		Card actualCard = testPlayer.placeCard(0);
+		
+		Assert.assertEquals(expectedCard, actualCard);
 		
 		
 		
 	}
-	
 
 }

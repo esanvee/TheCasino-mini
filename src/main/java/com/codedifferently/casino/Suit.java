@@ -1,8 +1,9 @@
-package com.codedifferently.casino;
 
+package com.codedifferently.casino;
 
 public enum Suit {
     CLUBS, DIAMONDS, HEARTS, SPADES;
-    
+	
+  
 
 }

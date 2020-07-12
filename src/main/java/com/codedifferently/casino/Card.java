@@ -1,48 +1,45 @@
 package com.codedifferently.casino;
 
-
 public class Card {
-    
-    public final Suit suit;
-    public final Rank rank;
 
+	public final Suit suit;
+	public final Rank rank;
 
+	public Card(Suit suit, Rank rank) {
+		this.suit = suit;
+		this.rank = rank;
+	}
 
-    public Card(Suit suit, Rank rank){
-        this.suit = suit;
-        this.rank = rank;
-    }
-    
-    
-    
-    public static void main(String[] args){
-       // Rank deckRank = Rank.ACE;
+	public static void main(String[] args) {
+		// Rank deckRank = Rank.ACE;
 
-        for (Rank deckRank : Rank.values()){
-            System.out.println(deckRank);
-        }
-        for (Suit deckSuit : Suit.values()){
-            System.out.println(deckSuit);
-        }
+		/*
+		 * for (Rank deckRank : Rank.values()){ System.out.println(deckRank); } for
+		 * (Suit deckSuit : Suit.values()){ System.out.println(deckSuit); }
+		 */
 
-        Card test = new Card(Suit.HEARTS, Rank.THREE);
+		Card test = new Card(Suit.HEARTS, Rank.THREE);
 
-        System.out.println("\n" + test.getRank());
-               
+		System.out.println("\n" + test.getRank());
+		test.toString();
 
-     }
+	}
 
-    public Suit getSuit(){
-        return this.suit;
-    }
+	public Suit getSuit() {
 
-    public Rank getRank(){
-        return this.rank;
-    }
+		return this.suit;
+	}
 
+	public Rank getRank() {
+		return this.rank;
+	}
 
+	@Override
 
-    public String readCard(){
-        return null;
-    }
-    }
+	public String toString() {
+
+		String result = "" + this.getSuit() + this.getRank();
+
+		return result;
+	}
+}

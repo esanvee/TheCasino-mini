@@ -10,4 +10,6 @@ public enum Rank {
     private Rank(int rankValue){
         this.rankValue = rankValue;
     }
+
+ 
 }

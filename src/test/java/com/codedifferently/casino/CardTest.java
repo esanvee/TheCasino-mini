@@ -8,7 +8,7 @@ public class CardTest {
     @Test
     public void constructorTest(){
         //GIVEN
-        Suit givenSuit = Suit.SPADES;
+    	Suit givenSuit = Suit.SPADES;
         Rank givenRank = Rank.QUEEN;
         Card cardTest = new Card(givenSuit, givenRank);
         //WHEN

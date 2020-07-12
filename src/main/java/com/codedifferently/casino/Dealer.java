@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Dealer {
 	
-	ArrayList<Card> hand;
+	public ArrayList<Card> hand = new ArrayList<Card>();
 	
 
 	public Dealer(ArrayList<Card> hand) {
@@ -21,6 +21,9 @@ public class Dealer {
 		Dealer dealer = new Dealer(hand);
 		
 		dealer.addToHand(cardDeck);
+		dealer.addToHand(cardDeck);
+		
+		System.out.println(hand.toString());
 		
 		
 		
@@ -41,8 +44,11 @@ public class Dealer {
 
 			return;
 		}
+		
+		Card pulledCard = cardDeck.pullCard();
 
-		this.hand.add(cardDeck.pullCard());
+		this.hand.add(pulledCard);
+		
 
 	}
 
@@ -61,9 +67,15 @@ public class Dealer {
 
 		return placedCard;
 	}
+	
+	public Card readCard(int index) {
+		
+		return hand.get(index);
+		
+	}
 
 	/*
-	 * //pulls a card from the deck and hands directly to the player's hand
+	 * //pulls a card from the deck and hands DIRECTLY to the player's hand
 	 */
 
 	public void distributeCard(Player player, CardDeck cardDeck) {
