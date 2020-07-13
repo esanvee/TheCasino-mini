@@ -2,7 +2,6 @@ package com.codedifferently.casino;
 
 import org.junit.Assert;
 import org.junit.Test;
-import com.codedifferently.casino.CardDeck;
 
 public class CardDeckTest {
 /*
