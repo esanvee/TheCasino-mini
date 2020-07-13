@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Player {
 
-	private ArrayList<Card> hand;
+	public ArrayList<Card> hand;
 	
 
 	public static void main(String args[]) {
@@ -71,9 +71,11 @@ public class Player {
 	 * Put a card back into the deck directly
 	 */
 	
-	public void addToDeck(Card card, CardDeck cardDeck) {
+	public void addToDeck(int index, CardDeck cardDeck) {
 
-		cardDeck.addCard(card);
+		Card withdrawnCard = hand.remove(index);
+
+		cardDeck.addCard(withdrawnCard);
 
 	}
 

@@ -72,7 +72,7 @@ public class DealerTest {
 		
 		Card expectedCard = testCardDeck.getCard(0);
 
-		//Pull a card stright from the deck to the player
+		//Pull a card straight from the deck to the player
 		
 		testDealer.distributeCard(testPlayer, testCardDeck);
 		
